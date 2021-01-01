@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">MAKE YOUR OFFER</span>
           </h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" method="POST" novalidate>
             <div class="row g-3">
               <div class="col-12">
                 <label for="name" class="form-label">Name</label>
