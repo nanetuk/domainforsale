@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
             <div class="row g-3">
               <div class="col-12">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="eg. George" value="" required>
+                <input name="name" type="text" class="form-control" id="name" placeholder="eg. George" value="" required>
                 <div class="invalid-feedback">
                   Valid name is required.
                 </div>
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
 
               <div class="col-12">
                 <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                <input type="email" class="form-control" id="email" placeholder="eg. you@example.com" required>
+                <input name="email" type="email" class="form-control" id="email" placeholder="eg. you@example.com" required>
                 <div class="invalid-feedback">
                   Please enter a valid email address.
                 </div>
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
                 <label for="address" class="form-label">Max bid</label>
                 <div class="input-group">
                   <span class="input-group-text">&pound;</span>
-                    <input type="text" class="form-control" id="bid" placeholder="eg. 400" required="">
+                    <input name="bid" type="text" class="form-control" id="bid" placeholder="eg. 400" required="">
                     <div class="invalid-feedback">
                         Your bid is required.
                     </div>
