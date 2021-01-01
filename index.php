@@ -30,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm()) {
           <form class="needs-validation" novalidate>
             <div class="row g-3">
               <div class="col-12">
-                <label for="firstName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="eg. George" value="" required>
                 <div class="invalid-feedback">
                   Valid name is required.
                 </div>
@@ -39,19 +39,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm()) {
 
               <div class="col-12">
                 <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                <input type="email" class="form-control" id="email" placeholder="eg. you@example.com">
                 <div class="invalid-feedback">
                   Please enter a valid email address.
                 </div>
               </div>
 
               <div class="col-12">
-                <label for="address" class="form-label">MAx Bid</label>
-                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                <div class="invalid-feedback">
-                  Please enter your max bid.
+                <label for="address" class="form-label">Max bid</label>
+                <div class="input-group">
+                  <span class="input-group-text">&pound;</span>
+                    <input type="text" class="form-control" id="bid" placeholder="eg. 400" required="">
+                    <div class="invalid-feedback">
+                        Your username is required.
+                    </div>
                 </div>
               </div>
+
             </div>
 
             <hr class="my-4">
