@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm()) {
 
               <div class="col-12">
                 <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                <input type="email" class="form-control" id="email" placeholder="eg. you@example.com">
+                <input type="email" class="form-control" id="email" placeholder="eg. you@example.com" required>
                 <div class="invalid-feedback">
                   Please enter a valid email address.
                 </div>
