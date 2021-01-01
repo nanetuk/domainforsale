@@ -13,11 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
   require 'vendor/PHPMailer/src/SMTP.php';
 
   // Instantiation and passing `true` enables exceptions
-  $mail = new PHPMailer(true);
+  $mail = new PHPMailer();
 
   try {
       //Server settings
-      $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
       $mail->isSMTP();                                            // Send using SMTP
       $mail->Host       = 'smtp.gmail.com';                       // Set the SMTP server to send through
       $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
@@ -29,14 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
       //Recipients
       $mail->setFrom(EMAIL, DOMAIN_NAME);
       $mail->addReplyTo($_POST['email'], $_POST['name']);         // Add a recipient
-      $mail->addAddress('info@example.com', 'Information');
+      $mail->addAddress(EMAIL, DOMAIN_NAME);
 
       // Content
       $mail->isHTML(true);                                        // Set email format to HTML
       $mail->Subject  = DOMAIN_NAME . ' bid!';
-      $mail->Body     = DOMAIN_NAME . ' has new bid from ' . $_POST['name'];
+      $mail->Body     = DOMAIN_NAME . ' has new bid from ' . $_POST['name'] . ' ' . $_POST['email'];
       $mail->Body    .= '<br>New bid: <strong>' . floatval($_POST['bid']) . '</strong>';
-      $mail->AltBody  = DOMAIN_NAME . ' has new bid from ' . $_POST['name'];
+      $mail->AltBody  = DOMAIN_NAME . ' has new bid from ' . $_POST['name'] . ' ' . $_POST['email'];
       $mail->AltBody .= 'New bid: ' . floatval($_POST['bid']);
 
       $mail->send();
