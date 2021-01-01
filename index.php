@@ -1,5 +1,10 @@
 <?php
-define('DOMAIN_NAME', $_SERVER['SERVER_NAME']);
+require_once 'config.php';
+require_once 'function.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm()) {
+  // send email
+}
 ?><!doctype html>
 <html lang="en">
   <head>
@@ -15,7 +20,7 @@ define('DOMAIN_NAME', $_SERVER['SERVER_NAME']);
 
       <div class="row g-3">
         <div class="col-md-7 col-lg-8">
-          <h4 class="mb-3">Billing address</h4>
+          <h4 class="mb-3">Domain statistics</h4>
         </div>
 
         <div class="col-md-5 col-lg-4">
@@ -61,5 +66,8 @@ define('DOMAIN_NAME', $_SERVER['SERVER_NAME']);
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Form validation -->
+    <script src="js/validation.js"></script>
   </body>
 </html>
