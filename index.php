@@ -27,10 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
       $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
       //Recipients
+      $mail->setFrom(EMAIL, DOMAIN_NAME);
       $mail->addReplyTo($_POST['email'], $_POST['name']);         // Add a recipient
       $mail->addAddress('info@example.com', 'Information');
-      $mail->addCC('cc@example.com');
-      $mail->addBCC('bcc@example.com');
 
       // Content
       $mail->isHTML(true);                                        // Set email format to HTML
