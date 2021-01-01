@@ -1,9 +1,50 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 require_once 'config.php';
 require_once 'function.php';
 
+$emailSent = false;
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm()) {
-  // send email
+  require 'vendor/PHPMailer/src/Exception.php';
+  require 'vendor/PHPMailer/src/PHPMailer.php';
+  require 'vendor/PHPMailer/src/SMTP.php';
+
+  // Instantiation and passing `true` enables exceptions
+  $mail = new PHPMailer(true);
+
+  try {
+      //Server settings
+      $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+      $mail->isSMTP();                                            // Send using SMTP
+      $mail->Host       = 'smtp.google.com';                      // Set the SMTP server to send through
+      $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+      $mail->Username   = EMAIL;                                  // SMTP username
+      $mail->Password   = PASSWORD;                               // SMTP password
+      $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+      $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+      //Recipients
+      $mail->addReplyTo($_POST['email'], $_POST['name']);         // Add a recipient
+      $mail->addAddress('info@example.com', 'Information');
+      $mail->addCC('cc@example.com');
+      $mail->addBCC('bcc@example.com');
+
+      // Content
+      $mail->isHTML(true);                                        // Set email format to HTML
+      $mail->Subject  = DOMAIN_NAME . ' bid!';
+      $mail->Body     = DOMAIN_NAME . ' has new bid from ' . $_POST['name'];
+      $mail->Body    .= '<br>New bid: <strong>' . floatval($_POST['bid']) . '</strong>';
+      $mail->AltBody  = DOMAIN_NAME . ' has new bid from ' . $_POST['name'];
+      $mail->AltBody .= 'New bid: ' . floatval($_POST['bid']);
+
+      $mail->send();
+      $emailSent = true;
+  } catch (Exception $e) {
+      echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+  }
 }
 ?><!doctype html>
 <html lang="en">
@@ -16,6 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm()) {
         <i class="fas fa-pound-sign"></i>
         <h2><?php echo DOMAIN_NAME; ?> is for sale!</h2>
         <p class="lead">DOMAIN NAME VALUES ARE CURRENTLY RISING AT A VERY RAPID RATE!</p>
+        <?php if ($emailSent) { ?>
+          <div class="alert alert-success">Email has been sent. We will come back to you soon!</div><?php } ?>
       </div>
 
       <div class="row g-3">
