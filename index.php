@@ -8,7 +8,7 @@ define('DOMAIN_NAME', $_SERVER['SERVER_NAME']);
   <body>
     <main class="container">
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+        <i class="fas fa-pound-sign"></i>
         <h2><?php echo DOMAIN_NAME; ?> is for sale!</h2>
         <p class="lead">DOMAIN NAME VALUES ARE CURRENTLY RISING AT A VERY RAPID RATE!</p>
       </div>
