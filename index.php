@@ -6,7 +6,7 @@ define('DOMAIN_NAME', $_SERVER['SERVER_NAME']);
     <?php include 'theme/header.php'; ?>
   </head>
   <body>
-    <main>
+    <main class="container">
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
         <h2><?php echo DOMAIN_NAME; ?> is for sale!</h2>
