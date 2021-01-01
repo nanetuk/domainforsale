@@ -6,8 +6,8 @@ use PHPMailer\PHPMailer\Exception;
 require_once 'config.php';
 require_once 'function.php';
 
-$emailSent = false;
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm()) {
+$emailSent = $emailError = false;
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
   require 'vendor/PHPMailer/src/Exception.php';
   require 'vendor/PHPMailer/src/PHPMailer.php';
   require 'vendor/PHPMailer/src/SMTP.php';
@@ -45,6 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm()) {
   } catch (Exception $e) {
       echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
   }
+} else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $emailError = valideteForm();
 }
 ?><!doctype html>
 <html lang="en">
@@ -59,6 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm()) {
         <p class="lead">DOMAIN NAME VALUES ARE CURRENTLY RISING AT A VERY RAPID RATE!</p>
         <?php if ($emailSent) { ?>
           <div class="alert alert-success">Email has been sent. We will come back to you soon!</div><?php } ?>
+        <?php if ($emailError) { ?>
+          <div class="alert alert-warning">Errors while sending your email:<br><?php echo $emailError; ?></div><?php } ?>
       </div>
 
       <div class="row g-3">
@@ -94,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm()) {
                   <span class="input-group-text">&pound;</span>
                     <input type="text" class="form-control" id="bid" placeholder="eg. 400" required="">
                     <div class="invalid-feedback">
-                        Your username is required.
+                        Your bid is required.
                     </div>
                 </div>
               </div>
