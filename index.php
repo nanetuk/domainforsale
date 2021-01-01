@@ -24,7 +24,7 @@ define('DOMAIN_NAME', $_SERVER['SERVER_NAME']);
           </h4>
           <form class="needs-validation" novalidate>
             <div class="row g-3">
-              <div class="col-sm-6">
+              <div class="col-12">
                 <label for="firstName" class="form-label">Name</label>
                 <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
                 <div class="invalid-feedback">
