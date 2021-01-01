@@ -1,1 +1,1 @@
-define('DOMAIN_NAME', $_SERVER['SERVER_NAME']);
+<?php define('DOMAIN_NAME', $_SERVER['SERVER_NAME']);

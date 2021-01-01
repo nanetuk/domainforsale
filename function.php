@@ -7,8 +7,8 @@ function valideteForm() {
   if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
     return false;
   }
-  
-  if (floatval($_POST['bid']) <0 0) {
+
+  if (floatval($_POST['bid']) < 0) {
     return false;
   }
 
