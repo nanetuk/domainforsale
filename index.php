@@ -52,8 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
     <?php include 'theme/header.php'; ?>
   </head>
   <body>
-    <div id="parallax">
-      <main class="container">
+      <main class="container" id="parallax">
         <div class="py-5 text-center">
           <i class="fas fa-pound-sign"></i>
           <h2><?php echo DOMAIN_NAME; ?> is for sale!</h2>
