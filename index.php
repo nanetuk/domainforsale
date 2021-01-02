@@ -7,7 +7,7 @@ require_once 'config.php';
 require_once 'function.php';
 
 $emailError = false;
-$emailSent = isset($_GET['emailSent']);
+$emailSent = isset($get['emailSent']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
   require 'vendor/PHPMailer/src/Exception.php';
   require 'vendor/PHPMailer/src/PHPMailer.php';
@@ -28,16 +28,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
 
       //Recipients
       $mail->setFrom(EMAIL, DOMAIN_NAME);
-      $mail->addReplyTo($_POST['email'], $_POST['name']);         // Add a recipient
+      $mail->addReplyTo($post['email'], $post['name']);         // Add a recipient
       $mail->addAddress(EMAIL, DOMAIN_NAME);
 
       // Content
       $mail->isHTML(true);                                        // Set email format to HTML
       $mail->Subject  = DOMAIN_NAME . ' bid!';
-      $mail->Body     = DOMAIN_NAME . ' has new bid from ' . $_POST['name'] . ' ' . $_POST['email'];
-      $mail->Body    .= '<br>New bid: <strong>' . floatval($_POST['bid']) . '</strong>';
-      $mail->AltBody  = DOMAIN_NAME . ' has new bid from ' . $_POST['name'] . ' ' . $_POST['email'];
-      $mail->AltBody .= 'New bid: ' . floatval($_POST['bid']);
+      $mail->Body     = DOMAIN_NAME . ' has new bid from ' . $post['name'] . ' ' . $post['email'];
+      $mail->Body    .= '<br>New bid: <strong>' . floatval($post['bid']) . '</strong>';
+      $mail->AltBody  = DOMAIN_NAME . ' has new bid from ' . $post['name'] . ' ' . $post['email'];
+      $mail->AltBody .= 'New bid: ' . floatval($post['bid']);
 
       $mail->send();
       header("Location: /?emailSent=true");
