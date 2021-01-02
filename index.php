@@ -6,7 +6,8 @@ use PHPMailer\PHPMailer\Exception;
 require_once 'config.php';
 require_once 'function.php';
 
-$emailSent = $emailError = false;
+$emailError = false;
+$emailSent = isset($_POST['emailSent']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
   require 'vendor/PHPMailer/src/Exception.php';
   require 'vendor/PHPMailer/src/PHPMailer.php';
@@ -39,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
       $mail->AltBody .= 'New bid: ' . floatval($_POST['bid']);
 
       $mail->send();
-      $emailSent = true;
+      header("Location: /?emailSent=true");
   } catch (Exception $e) {
       echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
   }
