@@ -18,3 +18,7 @@
       }, false)
     })
 })()
+
+function onSubmit(token) {
+  document.getElementById("form-bid").submit();
+}

@@ -6,3 +6,6 @@
 
 <!-- Parallax background effect -->
 <script src="js/parallax.js"></script>
+
+<!-- Google Recaptcha -->
+<script src="https://www.google.com/recaptcha/api.js"></script>

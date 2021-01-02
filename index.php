@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
       <h1 class="h3 mb-3 fw-normal"><?php echo DOMAIN_NAME; ?><br>is for sale!</h1>
       <?php if ($emailSent) { ?><div class="alert alert-success">Email has been sent. We will come back to you soon!</div><?php } ?>
       <?php if ($emailError) { ?><div class="alert alert-warning">Errors while sending your email:<br><?php echo $emailError; ?></div><?php } ?>
-      <form class="needs-validation" method="POST" novalidate>
+      <form class="needs-validation" method="POST" novalidate id="form-bid">
         <div class="row g-3">
           <div class="col-12">
             <label for="name" class="form-label visually-hidden">Name</label>
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
           </div>
 
           <div class="col-12">
-            <button class="w-100 btn btn-primary btn-lg" type="submit">Submit</button>
+            <button class="btn btn-primary btn-lg g-recaptcha" data-sitekey="6LfpBh4aAAAAADDoqA8SOs_2stcqaQqGw4PJppoN" data-callback="onSubmit" data-action="submit">Submit</button>
           </div>
         </div>
       </form>
