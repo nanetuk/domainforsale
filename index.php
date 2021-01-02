@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
       <form class="needs-validation" method="POST" novalidate>
         <div class="row g-3">
           <div class="col-12">
-            <label for="name" class="form-label">Name</label>
+            <label for="name" class="form-label visually-hidden">Name</label>
             <input name="name" type="text" class="form-control" id="name" placeholder="eg. George" value="" required>
             <div class="invalid-feedback">
               Valid name is required.
@@ -68,15 +68,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
           </div>
 
           <div class="col-12">
-            <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+            <label for="email" class="form-label visually-hidden">Email <span class="text-muted">(Optional)</span></label>
+            <div class="input-group">
+              <span class="input-group-text">@</span>
             <input name="email" type="email" class="form-control" id="email" placeholder="eg. you@example.com" required>
-            <div class="invalid-feedback">
+                <div class="invalid-feedback">
               Please enter a valid email address.
+                </div>
             </div>
           </div>
 
           <div class="col-12">
-            <label for="address" class="form-label">Max bid</label>
+            <label for="address" class="form-label visually-hidden">Max bid</label>
             <div class="input-group">
               <span class="input-group-text">&pound;</span>
                 <input name="bid" type="text" class="form-control" id="bid" placeholder="eg. 400" required="">
@@ -85,9 +88,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
                 </div>
             </div>
           </div>
-        </div>
 
-        <button class="w-100 btn btn-primary btn-lg" type="submit">Submit</button>
+          <div class="col-12">
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Submit</button>
+          </div>
+        </div>
       </form>
     </main>
     <?php include 'theme/footer.php'; ?>
