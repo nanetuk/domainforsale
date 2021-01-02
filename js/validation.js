@@ -17,8 +17,8 @@
         form.classList.add('was-validated')
       }, false)
     })
-})()
 
-function onSubmit(token) {
-  document.getElementById("form-bid").submit();
-}
+  function onSubmit(token) {
+    document.getElementById("form-bid").submit()
+  }
+})()
