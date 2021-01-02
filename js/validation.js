@@ -9,17 +9,17 @@
   Array.prototype.slice.call(forms)
     .forEach(function (form) {
       form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-        
+        form.checkValidity()
+        event.preventDefault()
+        event.stopPropagation()
 
+        // Recaptcha
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6LfpBh4aAAAAADDoqA8SOs_2stcqaQqGw4PJppoN', {action: 'submit'}).then(function(token) {
+            form.submit();
+          })
+        })
         form.classList.add('was-validated')
       }, false)
     })
-
-  function onSubmit(token) {
-    document.getElementById("form-bid").submit()
-  }
 })()

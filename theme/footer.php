@@ -8,4 +8,4 @@
 <script src="js/parallax.js"></script>
 
 <!-- Google Recaptcha -->
-<script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfpBh4aAAAAADDoqA8SOs_2stcqaQqGw4PJppoN"></script>
