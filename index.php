@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
           </div>
 
           <div class="col-12">
-            <button class="btn btn-primary btn-lg g-recaptcha" type="submit" data-sitekey="6LfpBh4aAAAAADDoqA8SOs_2stcqaQqGw4PJppoN" data-callback="onSubmit" data-action="submit">Submit</button>
+            <button class="btn btn-primary btn-lg" type="submit">Submit</button>
           </div>
         </div>
       </form>
