@@ -54,8 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
   <body class="text-center parallax">
     <main class="form-signin">
       <i class="fas fa-pound-sign mb-4"></i>
-      <h1 class="h3 mb-3 fw-normal"><?php echo DOMAIN_NAME; ?> is for sale!</h1>
-      <p class="lead">DOMAIN NAME VALUES ARE CURRENTLY RISING AT A VERY RAPID RATE!</p>
+      <h1 class="h3 mb-3 fw-normal"><?php echo DOMAIN_NAME; ?><br>is for sale!</h1>
       <?php if ($emailSent) { ?><div class="alert alert-success">Email has been sent. We will come back to you soon!</div><?php } ?>
       <?php if ($emailError) { ?><div class="alert alert-warning">Errors while sending your email:<br><?php echo $emailError; ?></div><?php } ?>
       <form class="needs-validation" method="POST" novalidate>
