@@ -51,8 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
   <head>
     <?php include 'theme/header.php'; ?>
   </head>
-  <body class="text-center">
-    <main class="form-signin" id="parallax">
+  <body class="text-center parallax">
+    <main class="form-signin">
       <form>
       <i class="fas fa-pound-sign mb-4"></i>
         <h1 class="h3 mb-3 fw-normal"><?php echo DOMAIN_NAME; ?> is for sale!</h1>
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && valideteForm() === true) {
                 <span class="input-group-text">&pound;</span>
                   <input name="bid" type="text" class="form-control" id="bid" placeholder="eg. 400" required="">
                   <div class="invalid-feedback">
-                      Your bid is required.
+                    Your bid is required.
                   </div>
               </div>
             </div>
